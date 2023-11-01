@@ -1,0 +1,55 @@
+<idea-plugin>
+    <id>com.thelumiereguy.compose_helper</id>
+    <name>Compose Helper</name>
+    <vendor email="piyushvp1@gmail.com" url="https://github.com/thelumiereguy">thelumiereguy</vendor>
+    <version>2.0.4</version>
+    <description><![CDATA[
+    A simple plugin to wrap your <a href="https://developer.android.com/jetpack/compose/">Composables</a> with another Composable. </br> </br>
+    Just keep your caret in the Editor on the composable, and <b>press on the yellow bulb on the left, or press Alt+Enter to show hints/intentions</b>. </br></br>
+    You can choose to - </br>
+    <ul>
+        <li> Wrap with Box</li>
+        <li> Wrap with Card</li>
+        <li> Wrap with Column</li>
+        <li> Wrap with Row</li>
+        <li> Wrap with LazyColumn</li>
+        <li> Wrap with LazyRow</li>
+        <li> Remove the parent composable</li>
+        <li> Remove the composable altogether</li>
+      </ul>
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>org.jetbrains.kotlin</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+        <defaultLiveTemplates file="templates/WrappedComposables.xml"/>
+
+        <intentionAction id="wrap_group" order="first">
+            <language>kotlin</language>
+            <className>com.thelumiereguy.compose_helper.intention.actions.WrapWithComposableIntentionGroup
+            </className>
+            <category>Composable intentions</category>
+        </intentionAction>
+
+        <intentionAction id="remove_composable" order="last">
+            <language>kotlin</language>
+            <className>com.thelumiereguy.compose_helper.intention.actions.RemoveComposableIntention
+            </className>
+            <category>Composable intentions</category>
+        </intentionAction>
+
+        <intentionAction id="remove_parent_composable" order="last">
+            <language>kotlin</language>
+            <className>com.thelumiereguy.compose_helper.intention.actions.RemoveParentComposableIntention
+            </className>
+            <category>Composable intentions</category>
+        </intentionAction>
+
+    </extensions>
+
+</idea-plugin>
