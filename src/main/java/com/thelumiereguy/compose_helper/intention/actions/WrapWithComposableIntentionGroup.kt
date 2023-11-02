@@ -9,14 +9,8 @@ import com.intellij.openapi.ui.popup.util.BaseListPopupStep
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiFile
 import com.intellij.ui.popup.list.ListPopupImpl
+import com.thelumiereguy.compose_helper.intention.actions.wrapActions.*
 import com.thelumiereguy.compose_helper.intention.icons.SdkIcons
-import com.thelumiereguy.compose_helper.intention.actions.wrapActions.BaseWrapWithComposableAction
-import com.thelumiereguy.compose_helper.intention.actions.wrapActions.WrapWithBoxIntention
-import com.thelumiereguy.compose_helper.intention.actions.wrapActions.WrapWithCardIntention
-import com.thelumiereguy.compose_helper.intention.actions.wrapActions.WrapWithColumnIntention
-import com.thelumiereguy.compose_helper.intention.actions.wrapActions.WrapWithLzyColumnIntention
-import com.thelumiereguy.compose_helper.intention.actions.wrapActions.WrapWithLzyRowIntention
-import com.thelumiereguy.compose_helper.intention.actions.wrapActions.WrapWithRowIntention
 import javax.swing.Icon
 
 class WrapWithComposableIntentionGroup :
@@ -45,6 +39,10 @@ class WrapWithComposableIntentionGroup :
             override fun onChosen(selectedValue: BaseWrapWithComposableAction, finalChoice: Boolean): PopupStep<*>? {
                 invokeAction(selectedValue)
                 return FINAL_CHOICE
+            }
+
+            override fun getIconFor(value: BaseWrapWithComposableAction?): Icon? {
+                return SdkIcons.composeIcon
             }
         }
 

@@ -36,14 +36,14 @@
             <category>Composable intentions</category>
         </intentionAction>
 
-        <intentionAction id="remove_composable" order="last">
+        <intentionAction id="remove_composable" order="first">
             <language>kotlin</language>
             <className>com.thelumiereguy.compose_helper.intention.actions.RemoveComposableIntention
             </className>
             <category>Composable intentions</category>
         </intentionAction>
 
-        <intentionAction id="remove_parent_composable" order="last">
+        <intentionAction id="remove_parent_composable" order="first">
             <language>kotlin</language>
             <className>com.thelumiereguy.compose_helper.intention.actions.RemoveParentComposableIntention
             </className>
