@@ -1,23 +1,20 @@
 <idea-plugin>
-    <id>com.thelumiereguy.compose_helper</id>
-    <name>Compose Helper</name>
-    <vendor email="piyushvp1@gmail.com" url="https://github.com/thelumiereguy">thelumiereguy</vendor>
-    <version>2.0.4</version>
-    <description><![CDATA[
-    A simple plugin to wrap your <a href="https://developer.android.com/jetpack/compose/">Composables</a> with another Composable. </br> </br>
-    Just keep your caret in the Editor on the composable, and <b>press on the yellow bulb on the left, or press Alt+Enter to show hints/intentions</b>. </br></br>
-    You can choose to - </br>
-    <ul>
-        <li> Wrap with Box</li>
-        <li> Wrap with Card</li>
-        <li> Wrap with Column</li>
-        <li> Wrap with Row</li>
-        <li> Wrap with LazyColumn</li>
-        <li> Wrap with LazyRow</li>
-        <li> Remove the parent composable</li>
-        <li> Remove the composable altogether</li>
-      </ul>
-    ]]></description>
+    <id>com.aiwan.compose</id>
+    <name>ComposeTool</name>
+    <vendor email="2501093733@qq.com" url="https://github.com/licheng1013">Aiwan</vendor>
+    <description>
+        <![CDATA[
+        <div>
+            English: <br/>
+            Compose tool, color preview, support component package removal tool <br/>
+        </div>
+        <div>
+            中文: <br/>
+            Compose 工具，颜色预览，支持组件包裹删除工具 <br/>
+            交流问题QQ群: 289132257 <br/>
+        </div>
+    ]]>
+    </description>
 
     <resource-bundle>messages.ComposeBundle</resource-bundle>
 

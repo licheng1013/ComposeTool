@@ -3,10 +3,8 @@ plugins {
     id("org.jetbrains.intellij") version "1.16.0"
 }
 
-val pluginVersion = "2.0.4"
 
-group = "com.thelumiereguy.compose_helper"
-version = pluginVersion
+group = "com.aiwan"
 
 repositories {
     mavenCentral()
@@ -43,19 +41,12 @@ tasks {
 
 
     patchPluginXml {
-        version.set(pluginVersion)
+        version.set("1.0.0")
         sinceBuild.set("222.*")
         untilBuild.set("")
         changeNotes.set(
             """
            <ul>
-             <li><b>2.0.4</b> Added support for Android Studio - Giraffe and Hedgehog</li>
-             <li><b>2.0.3</b> Added support for Android Studio - Electric Eel and Flamingo</li>
-             <li><b>2.0.2</b> Added support for Android Studio - Chipmunk and Dolphin</li>
-             <li><b>2.0.1</b> Bug fix - Parent Composable not actually being removed in some cases</li>
-             <li><b>2.0.0</b> Complete Rewrite - Optimizations and added new features</li>
-             <li><b>1.0.2</b> Added support for older Android Studio versions</li>
-             <li><b>1.0.1</b> Added support for Artic Fox</li>
              <li><b>1.0.0</b> Initial Version</li>
           </ul>    
             """.trimIndent()
