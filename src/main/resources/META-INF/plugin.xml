@@ -29,6 +29,8 @@
 
     <extensions defaultExtensionNs="com.intellij">
 
+        <colorProvider implementation="ru.ztrap.plugin.idea.compose.color.preview.ComposeColorProvider"/>
+
         <defaultLiveTemplates file="templates/WrappedComposables.xml"/>
 
         <intentionAction id="wrap_group" order="first">
