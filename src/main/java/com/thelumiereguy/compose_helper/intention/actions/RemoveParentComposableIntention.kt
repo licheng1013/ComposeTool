@@ -6,11 +6,11 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
-import com.thelumiereguy.compose_helper.intention.icons.SdkIcons
 import com.thelumiereguy.compose_helper.intention.actions.utils.composableFinder.ChildComposableFinder
 import com.thelumiereguy.compose_helper.intention.actions.utils.composableFinder.ComposableFunctionFinder
 import com.thelumiereguy.compose_helper.intention.actions.utils.getRootPsiElement.GetRootPsiElement
 import com.thelumiereguy.compose_helper.intention.actions.utils.isIntentionAvailable
+import com.thelumiereguy.compose_helper.intention.icons.SdkIcons
 import org.jetbrains.kotlin.psi.KtCallExpression
 import javax.swing.Icon
 
@@ -20,7 +20,7 @@ class RemoveParentComposableIntention :
     PriorityAction {
 
     override fun getText(): String {
-        return "Remove the parent Composable"
+        return ComposeBundle.message("remove.the.parent.composable")
     }
 
     override fun getFamilyName(): String {

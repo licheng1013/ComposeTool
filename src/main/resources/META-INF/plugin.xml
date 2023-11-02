@@ -19,6 +19,8 @@
       </ul>
     ]]></description>
 
+    <resource-bundle>messages.ComposeBundle</resource-bundle>
+
     <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
          on how to target different products -->
     <depends>org.jetbrains.kotlin</depends>

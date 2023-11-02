@@ -64,7 +64,7 @@ class WrapWithComposableIntentionGroup :
     }
 
     override fun getGroupText(actions: List<BaseWrapWithComposableAction>): String {
-        return "Wrap with Composable"
+        return ComposeBundle.message("wrap.with.composable")
     }
 
     override fun getIcon(flags: Int): Icon = SdkIcons.composeIcon

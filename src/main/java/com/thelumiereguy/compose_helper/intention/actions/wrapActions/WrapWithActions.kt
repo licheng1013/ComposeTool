@@ -2,11 +2,12 @@ package com.thelumiereguy.compose_helper.intention.actions.wrapActions
 
 import com.intellij.codeInsight.template.impl.TemplateImpl
 import com.intellij.codeInsight.template.impl.TemplateSettings
+import com.thelumiereguy.compose_helper.intention.actions.ComposeBundle
 
 class WrapWithBoxIntention : BaseWrapWithComposableAction() {
 
     override fun getText(): String {
-        return "Wrap with Box"
+        return ComposeBundle.message("wrap.with.box")
     }
 
     override fun getTemplate(): TemplateImpl? {
@@ -17,7 +18,7 @@ class WrapWithBoxIntention : BaseWrapWithComposableAction() {
 class WrapWithCardIntention : BaseWrapWithComposableAction() {
 
     override fun getText(): String {
-        return "Wrap with Card"
+        return ComposeBundle.message("wrap.with.card")
     }
 
     override fun getTemplate(): TemplateImpl? {
@@ -28,7 +29,7 @@ class WrapWithCardIntention : BaseWrapWithComposableAction() {
 class WrapWithColumnIntention : BaseWrapWithComposableAction() {
 
     override fun getText(): String {
-        return "Wrap with Column"
+        return ComposeBundle.message("wrap.with.column")
     }
 
     override fun getTemplate(): TemplateImpl? {
@@ -39,7 +40,7 @@ class WrapWithColumnIntention : BaseWrapWithComposableAction() {
 class WrapWithRowIntention : BaseWrapWithComposableAction() {
 
     override fun getText(): String {
-        return "Wrap with Row"
+        return ComposeBundle.message("wrap.with.row")
     }
 
     override fun getTemplate(): TemplateImpl? {
@@ -50,7 +51,7 @@ class WrapWithRowIntention : BaseWrapWithComposableAction() {
 class WrapWithLzyColumnIntention : BaseWrapWithComposableAction() {
 
     override fun getText(): String {
-        return "Wrap with LazyColumn"
+        return ComposeBundle.message("wrap.with.LazyColumn")
     }
 
     override fun getTemplate(): TemplateImpl? {
@@ -61,7 +62,7 @@ class WrapWithLzyColumnIntention : BaseWrapWithComposableAction() {
 class WrapWithLzyRowIntention : BaseWrapWithComposableAction() {
 
     override fun getText(): String {
-        return "Wrap with LazyRow"
+        return ComposeBundle.message("wrap.with.lazyRow")
     }
 
     override fun getTemplate(): TemplateImpl? {

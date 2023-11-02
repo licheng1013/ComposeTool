@@ -6,11 +6,11 @@ import com.intellij.openapi.editor.Editor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Iconable
 import com.intellij.psi.PsiElement
-import com.thelumiereguy.compose_helper.intention.icons.SdkIcons.composeIcon
 import com.thelumiereguy.compose_helper.intention.actions.utils.composableFinder.ComposableFunctionFinder
 import com.thelumiereguy.compose_helper.intention.actions.utils.composableFinder.ComposableFunctionFinderImpl
 import com.thelumiereguy.compose_helper.intention.actions.utils.getRootPsiElement.GetRootPsiElement
 import com.thelumiereguy.compose_helper.intention.actions.utils.isIntentionAvailable
+import com.thelumiereguy.compose_helper.intention.icons.SdkIcons.composeIcon
 import javax.swing.Icon
 
 class RemoveComposableIntention :
@@ -19,7 +19,7 @@ class RemoveComposableIntention :
     LowPriorityAction {
 
     override fun getText(): String {
-        return "Remove this Composable"
+        return ComposeBundle.message("remove.this.composable")
     }
 
     override fun getFamilyName(): String {
