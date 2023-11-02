@@ -15,7 +15,6 @@ import javax.swing.ImageIcon
 
 class MyLineMarkerProvider : RelatedItemLineMarkerProvider() {
 
-    val aa = "/aa/aa.png"
 
     override fun collectNavigationMarkers(
         element: PsiElement,
