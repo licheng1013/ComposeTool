@@ -51,6 +51,10 @@
             <category>Composable intentions</category>
         </intentionAction>
 
+
+        <codeInsight.lineMarkerProvider id="com.aiwan.compose.lineMarkerProvider"
+                                        language="kotlin"
+                                        implementationClass="org.aiwan.compose.MyLineMarkerProvider"/>
     </extensions>
 
 </idea-plugin>
