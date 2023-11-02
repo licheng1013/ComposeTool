@@ -6,13 +6,19 @@
         <![CDATA[
         <div>
             English: <br/>
-            Compose tool, Color preview and settings, support component package removal tool <br/>
-            Resource image preview <br/>
+            A tool plugin for compose-jb <br/>
+            Support for color preview display, and reset. <br/>
+            Supports preview display of resource images. <br/>
+            Supports wrapping of compose-jb components. <br/>
+            When the cursor is in the compose method name. You can use alt+enter to wrap a component or remove the current component. <br/>
         </div>
         <div>
             中文: <br/>
-            Compose 工具，颜色预览和设置，支持组件包裹删除工具 <br/>
-            资源图片预览 <br/>
+            compose-jb 的工具插件 <br/>
+            支持颜色预览显示和修改. <br/>
+            支持资源图片预览显示. <br/>
+            支持 compose-jb 组件的包装. <br/>
+            当光标位于compose方法名称时。您可以使用 alt+enter 来包裹组件,或移除当前组件. <br/>
             交流问题QQ群: 289132257 <br/>
         </div>
     ]]>
