@@ -1,2 +1,2 @@
-rootProject.name = "ComposeHelper"
+rootProject.name = "ComposeTool"
 
