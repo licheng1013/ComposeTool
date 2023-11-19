@@ -1,10 +1,10 @@
 # ComposeTool
 
-- [README-en.md](README-en.md)
+- English
 
-## 介绍
+## introduce
 
-- 基于以下插件
+- Based on the following plugins
 
 | 作用           | 插件                                                                                        | 仓库                                                    |
 |--------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------|
@@ -12,31 +12,23 @@
 | Compose 颜色预览 | [ComposeColorsPreview](https://plugins.jetbrains.com/plugin/21298-compose-colors-preview) | https://github.com/zTrap/compose-color-preview-plugin |
 
 ```text
-由于插件 ComposeHelper 没有适配新版本idea。所以进行的二次开发, 适配新版本idea.
-顺便把一个颜色预览插件也整合进来，可以说是两个插件的合体版.
-后面也会扩展一些其他的功能
+Since the plugin ComposeHelper is not adapted to the new version of idea.
+So the secondary development was carried out, adapted to the new version of idea.
+By the way, a color preview plug-in is also integrated, which can be said to be a combined version of the two plug-ins. 
+Some other features will be expanded later
 ```
 
-## 扩展功能
 
-- 功能状态
-- 开发中: 🍉 已完成: 🆗 不适用: ❌ 考虑中: 🍎
+## demo
 
-| 功能     | 完成 |
-|--------|----|
-| 资源图片显示 | 🆗 |
-| 模板目录   | 🍎 |
-
-## 演示
-
-### 包裹组件
+### Wrap the components
 
 - ![](image/warp.gif)
 
-### 资源显示
+### Resource display
 
 - ![](image/zy.gif)
 
-### 颜色选择
+### Color selection
 
 - ![](image/color.gif)
