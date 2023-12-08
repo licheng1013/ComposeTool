@@ -65,4 +65,12 @@
                                         implementationClass="org.aiwan.compose.MyLineMarkerProvider"/>
     </extensions>
 
+    <actions>
+        <action id="compose.tool.new"
+                icon="/icons/compose_icon.png"
+                class="org.aiwan.compose.action.ComposeAction" text="Compose"
+                description="Create Compose UI">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>

@@ -47,6 +47,7 @@ tasks {
         changeNotes.set(
             """
            <ul>
+             <li><b>1.0.2</b> fix path show error </li>
              <li><b>1.0.1</b> 显示与资源目录下的导航icon关联 </li>
              <li><b>1.0.0</b> Initial Version </li>
            </ul>    

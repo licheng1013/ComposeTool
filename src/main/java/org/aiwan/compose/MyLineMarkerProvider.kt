@@ -11,6 +11,8 @@ import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.util.PsiTreeUtil
 import org.jetbrains.kotlin.psi.KtProperty
 import org.jetbrains.kotlin.psi.KtStringTemplateExpression
+import org.jetbrains.kotlin.utils.addToStdlib.ifFalse
+import org.jetbrains.kotlin.utils.addToStdlib.ifTrue
 import java.awt.Image
 import java.io.File
 import javax.swing.ImageIcon
@@ -23,7 +25,7 @@ class MyLineMarkerProvider : RelatedItemLineMarkerProvider() {
         element: PsiElement,
         result: MutableCollection<in RelatedItemLineMarkerInfo<*>>
     ) {
-        this.stringResource(element,result)
+        this.stringResource(element, result)
     }
 
     private fun stringResource(element: PsiElement, result: MutableCollection<in RelatedItemLineMarkerInfo<*>>) {
@@ -32,6 +34,10 @@ class MyLineMarkerProvider : RelatedItemLineMarkerProvider() {
             return
         }
         val file = getFile(virtualFile, element) ?: return
+
+        if (file.isDirectory || !file.exists()) {
+            return
+        }
 
         var isImage = false
         for (it in fileSuffix) {
@@ -49,14 +55,12 @@ class MyLineMarkerProvider : RelatedItemLineMarkerProvider() {
         result.add(builder.createLineMarkerInfo(type, MyGutterIconNavigationHandler((file.absolutePath))))
     }
 
-    private fun getFile(file: VirtualFile,element: PsiElement): File? {
+    private fun getFile(file: VirtualFile, element: PsiElement): File? {
         val text = element.text
-
         // 排除空字符串
-        if (text.replace("\"","").isBlank()) {
+        if (text.replace("\"", "").isBlank()) {
             return null
         }
-
         val match = Regex("\"(.*)\"").find(text) ?: return null
         val path = match.groupValues[1]
         val indexOf = file.path.indexOf("kotlin")
@@ -73,7 +77,6 @@ class MyLineMarkerProvider : RelatedItemLineMarkerProvider() {
     }
 
 
-
     private val fileSuffix = hashSetOf(".png", ".jpg", ".jpeg", ".gif", ".bmp")
 
     private fun iconImageBuilder(path: String): NavigationGutterIconBuilder<PsiElement> {
@@ -88,5 +91,5 @@ class MyLineMarkerProvider : RelatedItemLineMarkerProvider() {
 
 
     private val iconOther = NavigationGutterIconBuilder.create(AllIcons.Actions.ListFiles)
-    .setAlignment(GutterIconRenderer.Alignment.LEFT).setTarget(null).setTooltipText("Resource file")
+        .setAlignment(GutterIconRenderer.Alignment.LEFT).setTarget(null).setTooltipText("Resource file")
 }
