@@ -34,6 +34,7 @@ public class ComposeAction extends AnAction {
                 FileUtil.createDirectory(new File(newDirectory));
                 // 截取到 kotlin 之后的路径并转换为包名
                 String packageName = newDirectory.substring(newDirectory.indexOf("kotlin") + 7).replace(File.separator, ".");
+                packageName = packageName.replace("/", ".");
 
                 String uiFile = newDirectory + File.separator + fileName + ".kt";
                 String stateFile = newDirectory + File.separator + fileName + "State.kt";
@@ -77,9 +78,9 @@ public class ComposeAction extends AnAction {
     public void update(@NotNull AnActionEvent e) {
         VirtualFile selectedDirectory = e.getData(CommonDataKeys.VIRTUAL_FILE);
         if (selectedDirectory != null && selectedDirectory.isDirectory()) {
-            e.getPresentation().setEnabled(selectedDirectory.getPath().contains("kotlin"));
+            e.getPresentation().setVisible(selectedDirectory.getPath().contains("kotlin"));
         } else {
-            e.getPresentation().setEnabled(false);
+            e.getPresentation().setVisible(false);
         }
     }
 
