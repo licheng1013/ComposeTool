@@ -41,12 +41,13 @@ tasks {
 
 
     patchPluginXml {
-        version.set("1.0.2")
+        version.set("1.0.3")
         sinceBuild.set("222.*")
         untilBuild.set("")
         changeNotes.set(
             """
            <ul>
+             <li><b>1.0.3</b> 修复包路径错误问题 </li>
              <li><b>1.0.2</b> fix path show error，增加模板创建 </li>
              <li><b>1.0.1</b> 显示与资源目录下的导航icon关联 </li>
              <li><b>1.0.0</b> Initial Version </li>
