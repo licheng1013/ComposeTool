@@ -1,7 +1,6 @@
 package org.aiwan.compose
 
 import com.intellij.codeInsight.daemon.RelatedItemLineMarkerInfo
-import com.intellij.codeInsight.daemon.RelatedItemLineMarkerProvider
 import com.intellij.codeInsight.navigation.NavigationGutterIconBuilder
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.editor.markup.GutterIconRenderer
@@ -9,23 +8,18 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.kotlin.psi.KtProperty
 import org.jetbrains.kotlin.psi.KtStringTemplateExpression
-import org.jetbrains.kotlin.utils.addToStdlib.ifFalse
-import org.jetbrains.kotlin.utils.addToStdlib.ifTrue
 import java.awt.Image
 import java.io.File
 import javax.swing.ImageIcon
 
-
-class MyLineMarkerProvider : RelatedItemLineMarkerProvider() {
-
-
-    override fun collectNavigationMarkers(
-        element: PsiElement,
-        result: MutableCollection<in RelatedItemLineMarkerInfo<*>>
-    ) {
-        this.stringResource(element, result)
+class ResUtil(
+    element: PsiElement,
+    private val type: Platform,
+    result: MutableCollection<in RelatedItemLineMarkerInfo<*>>
+) {
+    init {
+        stringResource(element, result)
     }
 
     private fun stringResource(element: PsiElement, result: MutableCollection<in RelatedItemLineMarkerInfo<*>>) {
@@ -56,6 +50,9 @@ class MyLineMarkerProvider : RelatedItemLineMarkerProvider() {
     }
 
     private fun getFile(file: VirtualFile, element: PsiElement): File? {
+        if (type == Platform.Flutter) {
+            return null
+        }
         val text = element.text
         // 排除空字符串
         if (text.replace("\"", "").isBlank()) {
@@ -76,20 +73,21 @@ class MyLineMarkerProvider : RelatedItemLineMarkerProvider() {
         return resourcesFile
     }
 
+    companion object {
+        private val fileSuffix = hashSetOf(".png", ".jpg", ".jpeg", ".gif", ".bmp")
+        private val iconOther = NavigationGutterIconBuilder.create(AllIcons.Actions.ListFiles)
+            .setAlignment(GutterIconRenderer.Alignment.LEFT).setTarget(null).setTooltipText("Resource file")
 
-    private val fileSuffix = hashSetOf(".png", ".jpg", ".jpeg", ".gif", ".bmp")
+        private fun iconImageBuilder(path: String): NavigationGutterIconBuilder<PsiElement> {
+            val originalIcon = ImageIcon(path)
+            val originalImage: Image = originalIcon.image
+            val resizedImage: Image = originalImage.getScaledInstance(16, 16, Image.SCALE_SMOOTH) // 设置新的宽度和高度
+            val resizedIcon = ImageIcon(resizedImage)
 
-    private fun iconImageBuilder(path: String): NavigationGutterIconBuilder<PsiElement> {
-        val originalIcon = ImageIcon(path)
-        val originalImage: Image = originalIcon.image
-        val resizedImage: Image = originalImage.getScaledInstance(16, 16, Image.SCALE_SMOOTH) // 设置新的宽度和高度
-        val resizedIcon = ImageIcon(resizedImage)
-
-        return NavigationGutterIconBuilder.create(resizedIcon)
-            .setAlignment(GutterIconRenderer.Alignment.LEFT).setTarget(null).setTooltipText("Resource image")
+            return NavigationGutterIconBuilder.create(resizedIcon)
+                .setAlignment(GutterIconRenderer.Alignment.LEFT).setTarget(null).setTooltipText("Resource image")
+        }
     }
 
 
-    private val iconOther = NavigationGutterIconBuilder.create(AllIcons.Actions.ListFiles)
-        .setAlignment(GutterIconRenderer.Alignment.LEFT).setTarget(null).setTooltipText("Resource file")
 }

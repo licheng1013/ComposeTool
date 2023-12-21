@@ -1,0 +1,7 @@
+<idea-plugin>
+    <extensions defaultExtensionNs="com.intellij">
+        <codeInsight.lineMarkerProvider id="com.aiwan.compose.MyDartMarkerProvider"
+                                        language="Dart"
+                                        implementationClass="org.aiwan.compose.MyDartMarkerProvider"/>
+    </extensions>
+</idea-plugin>

@@ -31,6 +31,7 @@
     <depends>org.jetbrains.kotlin</depends>
     <depends>com.intellij.modules.java</depends>
     <depends>com.intellij.modules.platform</depends>
+    <depends optional="true" config-file="dart-plugin.xml">Dart</depends>
 
     <extensions defaultExtensionNs="com.intellij">
 

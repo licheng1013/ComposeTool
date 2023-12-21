@@ -17,7 +17,7 @@ dependencies {
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version.set("2023.2.4")
-    plugins.set(listOf("com.intellij.java", "Kotlin"))
+    plugins.set(listOf("com.intellij.java", "Kotlin", "Dart:232.10248"))
 }
 
 kotlin {
