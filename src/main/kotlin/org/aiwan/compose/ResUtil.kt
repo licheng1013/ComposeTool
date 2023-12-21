@@ -8,7 +8,6 @@ import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.psi.PsiElement
 import com.intellij.psi.impl.source.tree.LeafPsiElement
 import com.intellij.psi.util.PsiTreeUtil
-import org.jetbrains.kotlin.psi.KtStringTemplateExpression
 import java.awt.Image
 import java.io.File
 import javax.swing.ImageIcon
@@ -24,9 +23,6 @@ class ResUtil(
 
     private fun stringResource(element: PsiElement, result: MutableCollection<in RelatedItemLineMarkerInfo<*>>) {
         val virtualFile = element.containingFile.virtualFile ?: return
-        if (element !is KtStringTemplateExpression) {
-            return
-        }
         val file = getFile(virtualFile, element) ?: return
 
         if (file.isDirectory || !file.exists()) {
@@ -50,22 +46,36 @@ class ResUtil(
     }
 
     private fun getFile(file: VirtualFile, element: PsiElement): File? {
-        if (type == Platform.Flutter) {
-            return null
-        }
-        val text = element.text
+        var text = element.text
+        text = text.replace("\"", "")
+        text = text.replace("'", "")
         // 排除空字符串
-        if (text.replace("\"", "").isBlank()) {
+        if (text.isBlank()) {
             return null
         }
-        val match = Regex("\"(.*)\"").find(text) ?: return null
-        val path = match.groupValues[1]
+        val with = text.startsWith("/")
+        text = if (with) text else "/$text"
+
+        if (type == Platform.Flutter) {
+            if (element.text.contains("package:")) {
+                return null
+            }
+            var path = element.project.basePath ?: return null
+            path += text
+            //println("path: $path")
+            val f = File(path)
+            if (f.exists()) {
+                return f
+            }
+            return null
+        }
+
         val indexOf = file.path.indexOf("kotlin")
         if (indexOf == -1) {
             return null
         }
         // 截断后获取资源目录
-        val resourcesPath = file.path.subSequence(0, indexOf).toString() + "resources" + path
+        val resourcesPath = file.path.subSequence(0, indexOf).toString() + "resources" + text
         val resourcesFile = File(resourcesPath)
         if (!resourcesFile.exists()) {
             return null
