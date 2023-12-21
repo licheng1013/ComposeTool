@@ -36,7 +36,7 @@ tasks {
     }
 
     publishPlugin {
-        token.set(System.getenv("Jetbrains_Compose_Helper_Token"))
+        token.set(System.getenv(""))
     }
 
 
