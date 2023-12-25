@@ -60,6 +60,8 @@
             <category>Composable intentions</category>
         </intentionAction>
 
+        <typedHandler implementation="org.aiwan.compose.MyTypedHandlerDelegate"/>
+
 
         <codeInsight.lineMarkerProvider id="com.aiwan.compose.lineMarkerProvider"
                                         language="kotlin"
