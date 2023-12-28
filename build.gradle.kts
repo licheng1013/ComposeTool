@@ -41,12 +41,13 @@ tasks {
 
 
     patchPluginXml {
-        version.set("1.0.3")
+        version.set("1.0.4")
         sinceBuild.set("222.*")
         untilBuild.set("")
         changeNotes.set(
             """
            <ul>
+             <li><b>1.0.4</b> 增加flutter资源引用显示 </li>
              <li><b>1.0.3</b> 修复包路径错误问题 </li>
              <li><b>1.0.2</b> fix path show error，增加模板创建 </li>
              <li><b>1.0.1</b> 显示与资源目录下的导航icon关联 </li>
